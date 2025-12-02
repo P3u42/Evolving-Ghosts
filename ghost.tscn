@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0wjt1qrosxic"]
+
+[ext_resource type="Script" uid="uid://1s43aql2ywbi" path="res://DNA.gd" id="1_6attn"]
+[ext_resource type="Texture2D" uid="uid://bhowcjccqpekk" path="res://fantasma vista frontal .png" id="1_v5pp4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6attn"]
+radius = 84.0
+height = 334.0
+
+[node name="Ghost" type="Area2D"]
+monitorable = false
+script = ExtResource("1_6attn")
+
+[node name="FantasmaVistaFrontal" type="Sprite2D" parent="."]
+position = Vector2(73.8751, 107.655)
+scale = Vector2(0.157302, 0.157302)
+texture = ExtResource("1_v5pp4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(72, 115)
+shape = SubResource("CapsuleShape2D_6attn")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
