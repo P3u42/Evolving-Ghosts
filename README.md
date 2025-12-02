@@ -1,1 +1,1 @@
-This project implements a DNA class in Godot for a simulation involving ghost entities. Each instance is initialized with specific genes (represented by RGB color values) and tracks its own survival time (time_elapsed).Work in progress
+This project implements a genetic algoritm in  Godot that simulates  evolving ghost entities. Each instance is initialized with specific genes (represented by RGB color values) and tracks its own survival time (time_elapsed).Work in progress
