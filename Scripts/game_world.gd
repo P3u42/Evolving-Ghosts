@@ -1,5 +1,6 @@
 extends Node2D
 class_name World
+
 var population:Array = []
 var pop_size:int = 10
 const GHOST = preload("res://ghost.tscn")
@@ -9,6 +10,7 @@ var screen_sizeY
 var trialTime:int = 10 
 var generation:int = 1
 @onready var trial_t_ime: Label = $TrialTIme
+@onready var generationLabel: Label = $Generation
 
 func generate_population():
 	for i in range(0,pop_size):
@@ -31,11 +33,27 @@ func _ready() -> void:
 		#newGhost.position.x = randf_range(0,1152)
 		#newGhost.position.y = randf_range(0,648.0)
 		#population.append(newGhost)
-		trial_t_ime.text = "Trial time: " + str(trialTime)
+		trial_t_ime.text = "Trial time: " + str(time_elapsed)
+		generationLabel.text = "Generation: " +str(generation)
 		screen_sizeX = get_viewport_rect().size.x
 		screen_sizeY = get_viewport_rect().size.y
 		generate_population()
+
+	
+func calcFitness():
+	var fitness = 0
+	var fitest 
+	for pop in population:
+		if pop.time_elapsed>fitness:
+			fitest = pop
+			
 		
+func GenerateNewPopulation():
+	var newPopulation:Array = []
+	
+	
+		
+	
 		
 			
 		
@@ -44,4 +62,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	time_elapsed += delta
+	print(time_elapsed)
+	if time_elapsed > trialTime:
+		#breed population
+		time_elapsed = 0
+		trial_t_ime.text = "Trial time: " + str(time_elapsed)
+		generationLabel.text = "Generation: " +str(generation)
+		
